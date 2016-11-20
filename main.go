@@ -17,6 +17,10 @@ var (
 	lock     sync.Mutex
 )
 
+func init() {
+	flag.Parse()
+}
+
 func Save(w http.ResponseWriter, r *http.Request) {
 	lock.Lock()
 	f, err := os.Create(*dataPath)
